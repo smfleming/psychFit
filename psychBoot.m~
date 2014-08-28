@@ -1,0 +1,25 @@
+function paramDist = psychBoot(boot, x, k, N, func, pArray, lapse)
+% Bootstraps psychometric function parameter estimates by sampling from the
+% binomial
+%
+% SF 2012
+
+[params fVal] = fminsearch(@fitfunc, pArray, options);
+
+    function negLL = fitfunc(pArray)
+        
+        switch func
+            case 'normal'
+                
+                mu = pArray(1);
+                sig = pArray(2);
+                
+                pred = cumNormPred(x, mu, sig);
+                
+                sampData = binornd(N,pred);
+                
+        end
+    end
+
+end
+

@@ -1,0 +1,19 @@
+function psychPlot(x, k, N, params, lineCol, markerSpec)
+% Plot psychometric function that's been fit by psychFit
+%
+% lineCol and markerSpec are optional
+%
+% SF 2014
+
+if isempty(lineCol)
+    lineCol = 'k';
+end
+if isempty(markerSpec)
+    markerSpec = 'bo ';
+end
+base = linspace(min(x), max(x), 200);
+
+pred = cumNormPred(base, params(1), params(2));
+plot(x, k./N, markerSpec, 'MarkerSize', 10, 'LineWidth', 1.5);
+hold on
+plot(base, pred, 'Color', lineCol, 'LineWidth', 2);

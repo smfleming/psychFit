@@ -1,0 +1,11 @@
+function pred = cumNormLapsePred(x, mu, sig, lamda)
+% Gets predicted values for cumulative normal psychometric function
+%
+% SF 2012
+
+for i = 1:length(x)
+    
+    % get predicted pc for this parameter setting
+    pred(i) = ((1-lamda).*0.5.*(1 + erf((x(i) - mu).*sqrt(pi).*sig.^2)))) + 0.5.*lamda;
+
+end

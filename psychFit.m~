@@ -1,0 +1,26 @@
+function params = psychFit(x, k, N, pArray)
+% Wrapper code to do maximum likelihood fitting of the psychometric
+% function
+%
+% params = psychFit(x, k, N, pArray)
+%
+% x = x-axis bins
+% k = counts of response "A" in bin x(i
+%
+% SF 2012
+
+options = optimset;
+[params fVal] = fminsearch(@fitfunc, pArray, options);
+
+    function negLL = fitfunc(pArray)
+                
+                mu = pArray(1);
+                sig = pArray(2);
+                
+                pmf = cumNormBinoPMF(x, mu, sig, N, k);
+                
+                negLL = -sum(log(pmf));
+                
+    end
+
+end
