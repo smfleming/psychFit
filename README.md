@@ -9,4 +9,4 @@ At the moment the implemented fits are cumulative normal, logistic and cumulativ
 
 The main function is psychFit.m. psychPlot.m will produce plots of the data and fitted function. Check out example_psychFit.m to get started.
 
-If you have any comments or if you find any errors please let me know at sf102@nyu.edu.
+If you have any comments or if you find any errors please let me know at stephen.fleming@ucl.ac.uk
